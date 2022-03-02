@@ -176,7 +176,7 @@ body {
     }
 
     to {
-      transform: translateY(-86px + $i*2) translatex(40px);
+      transform: translateY(-100px + $i*2) translatex(40px);
       opacity: .6;
     }
   }
@@ -189,7 +189,7 @@ body {
     }
 
     to {
-      transform: translateY(-99px + $i*2) translatex(-40px);
+      transform: translateY(-120px + $i*2) translatex(-20px);
       opacity: .6;
     }
   }
@@ -220,7 +220,7 @@ body {
   }
 
   to {
-    left: 57px;
+    left: 20px;
   }
 }
 
