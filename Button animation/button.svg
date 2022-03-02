@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="scss/main.css" />
+
+<button class="bubble-animation">Add more 
+<div class='hovered'>
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 7L14 7" stroke="#222222" stroke-opacity="0.7" stroke-width="1.5"/>
+<path d="M7 14L7 -7.15256e-07" stroke="#222222" stroke-opacity="0.7" stroke-width="1.5"/>
+</svg>
+ <div class='b_l_quad'>
+        <div class='button_spots'></div>
+        <div class='button_spots'></div>
+</div>
+</div>
+</button>
