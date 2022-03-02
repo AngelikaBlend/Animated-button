@@ -1,0 +1,261 @@
+// Colors
+$blue: #00c2ff;
+$yellow: #ffc700;
+$pink: #ff5099;
+
+// irrelevant to just move to middle
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tick {
+  position: absolute;
+  left: -40;
+  right: 0;
+  transform: scale(0);
+  margin: auto;
+  font-size: 22px;
+}
+
+.button {
+  background: none;
+  border: 0;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  /* identical to box height, or 16px */
+
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  /* Light/Label */
+
+  color: rgba(34, 34, 34, 0.7);
+
+  .b_l_quad {
+    position: relative;
+    top: -10px;
+    left: 90px;
+
+    .button_spots {
+
+      // bottom
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          padding: random(3) + 2 + px;
+          left: -10 + floor(random() * ((20 - (-20)) + 1)) + px;
+          top: 10 + px;
+        }
+      }
+
+      // top
+      @for $i from 20 through 40 {
+        &:nth-child(#{$i}) {
+          padding: random(3) + 2 + px;
+          left: -10 + floor(random() * ((20 - (-20)) + 1)) + px;
+          top: -10 + px;
+        }
+      }
+
+      // right
+      @for $i from 40 through 46 {
+        &:nth-child(#{$i}) {
+          padding: random(3) + 2 + px;
+          left: 20px;
+          top: -10 + floor(random() * ((20 - (-20)) + 1)) + px;
+        }
+      }
+
+      // left
+      @for $i from 46 through 52 {
+        &:nth-child(#{$i}) {
+          padding: random(3) + 2 + px;
+          left: -20px;
+          top: -10 + floor(random() * ((20 - (-20)) + 1)) + px;
+        }
+      }
+    }
+  }
+
+  .button_spots {
+    position: absolute;
+    border-radius: 100px;
+    background: $blue;
+    opacity: 0;
+    animation: opacity 1s;
+
+    @for $i from 1 through 52 {
+      $color: $yellow;
+
+      @if $i % 3==0 {
+        $color: $yellow;
+      }
+
+      @else if $i % 2==0 {
+        $color: $pink;
+      }
+
+      @else {
+        $color: $blue;
+      }
+
+      &:nth-of-type(#{$i}) {
+        transform-origin: 90px - random(10) 20px - random(10);
+        background: $color;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+        transition: all 1s + random(10)/10;
+      }
+    }
+  }
+
+  &:hover .button_spots,
+  &.test .button_spots {
+    @for $i from 1 through 19 {
+      &:nth-of-type(#{$i}) {
+        animation: spot-#{$i} .7s .4/random(10)+random(10)/10+s linear infinite;
+      }
+    }
+
+    @for $i from 20 through 40 {
+      &:nth-of-type(#{$i}) {
+        animation: spot-#{$i} .7s .4/random(10)+random(10)/10+s linear infinite;
+      }
+    }
+
+    @for $i from 40 through 46 {
+      &:nth-of-type(#{$i}) {
+        animation: spot-#{$i} .7s .4/random(10)+random(10)/10+s linear infinite;
+      }
+    }
+
+    @for $i from 46 through 54 {
+      &:nth-of-type(#{$i}) {
+        animation: spot-#{$i} .7s .4/random(10)+random(10)/10+s linear infinite;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 20 {
+  @keyframes spot-#{$i} {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(30px) translatex(-20px + $i*2);
+      opacity: .6;
+    }
+  }
+}
+
+@for $i from 20 through 40 {
+  @keyframes spot-#{$i} {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(-30px) translatex(-50px + $i*2);
+      opacity: .6;
+    }
+  }
+}
+
+@for $i from 40 through 45 {
+  @keyframes spot-#{$i} {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(-86px + $i*2) translatex(40px);
+      opacity: .6;
+    }
+  }
+}
+
+@for $i from 46 through 54 {
+  @keyframes spot-#{$i} {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(-99px + $i*2) translatex(-40px);
+      opacity: .6;
+    }
+  }
+}
+
+@keyframes opacity {
+  from {}
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    opacity: .8
+  }
+
+  to {
+    transform: rotate(360deg);
+    opacity: .8
+  }
+}
+
+@keyframes down {
+  from {
+    left: 10px;
+  }
+
+  to {
+    left: 57px;
+  }
+}
+
+@keyframes spew {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes final {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes finalbox {
+  from {}
+
+  to {
+    width: 50px;
+  }
+}
+
+@keyframes tick {
+  from {}
+
+  to {
+    transform: scale(1) rotate(-90deg)
+  }
+}
